@@ -1,8 +1,5 @@
-<%= form_for(@trip) do |f| %>
-  <%= render "layouts/errors", :object => @trip %>
-  <div class="form-group">
-    <%= f.label "Name:" %>
-    <%= f.text_field :name %>
-  </div>
-  <%= f.submit(:class => "btn btn-default") %>
+<%= form_for @picture, :url => trip_pictures_path(@trip), :html => { :multipart => true } do |f| %>
+  <%= render('layouts/errors', :object => @picture) %>
+  <%= f.file_field :photo %>
+  <%= f.submit "Add Photo", :class => "btn btn-default" %>
 <% end %>

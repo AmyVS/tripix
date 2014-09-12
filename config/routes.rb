@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :sessions
 
   resources :users
-  resources :trips
+  resources :trips do
+    resources :pictures
+  end
 
 end
