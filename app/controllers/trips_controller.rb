@@ -11,7 +11,7 @@ class TripsController < ApplicationController
     @trip = Trip.create(trip_params)
     if @trip.valid?
       flash[:notice] = "Your trip has been documented!"
-      redirect_to user_path(@user)
+      redirect_to trip_path(@trip)
     else
       flash[:alert] = "Something went wrong. Please try again."
       render "new"
@@ -19,7 +19,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(trip_params)
+    @trip = Trip.find(params[:id])
   end
 
 private
