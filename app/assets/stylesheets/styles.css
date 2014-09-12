@@ -8,3 +8,15 @@
   height: auto;
   border: solid gray 3px;
 }
+
+ul.show_pix {
+  list-style-type: none;
+}
+
+li.pic {
+  margin: 2%;
+}
+
+.btn {
+  margin: 2%;
+}
