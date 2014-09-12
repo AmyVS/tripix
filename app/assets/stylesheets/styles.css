@@ -1,0 +1,10 @@
+#nav-bar {
+  float: right;
+}
+
+.header {
+  margin-top: 3%;
+  max-width: 100%;
+  height: auto;
+  border: solid gray 3px;
+}
