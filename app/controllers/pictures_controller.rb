@@ -13,7 +13,7 @@ class PicturesController < ApplicationController
     @picture = Picture.create(picture_params)
     if @picture.valid?
       flash[:notice] = "Your picture has been added!"
-      redirect_to trip_picture_path(@user, @picture)
+      redirect_to trip_path(@trip)
     else
       flash[:alert] = "Something went wrong. Please try again."
       render "new"
@@ -22,6 +22,6 @@ class PicturesController < ApplicationController
 
 private
   def picture_params
-    params.require(:picture).permit(:trip_id, :image).merge(:user_id => current_user.id)
+    params.require(:picture).permit(:photo).merge(:user_id => current_user.id, :trip_id => @trip.id)
   end
 end
