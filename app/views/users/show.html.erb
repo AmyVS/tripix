@@ -1,3 +1,9 @@
 <h2>Profile for <%= @user.username %></h2>
 
+<h3>Your Trips:</h3>
+  <ul>
+    <% @user.trips.each do |trip| %>
+      <li><%= link_to "#{trip.name}", trip_path(trip) %></li>
+    <% end %>
+  </ul>
 <%= link_to "Home", root_path, :class => "btn btn-default" %>
