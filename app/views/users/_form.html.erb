@@ -1,0 +1,16 @@
+<%= form_for(@user) do |f| %>
+  <%= render "layouts/errors", :object => @user %>
+  <div class="form-group">
+    <%= f.label "Email:" %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Password:" %>
+    <%= f.text_field :password %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Password Confirmation:" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <%= f.submit(:class => "btn btn-default") %>
+<% end %>
