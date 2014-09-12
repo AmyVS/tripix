@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'bcrypt-ruby', '~> 3.1.5'
 
 group :development do
   gem 'better_errors'
