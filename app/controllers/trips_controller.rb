@@ -24,6 +24,6 @@ class TripsController < ApplicationController
 
 private
   def trip_params
-    params.require(:trip).permit(:description).merge(:user_id => current_user.id)
+    params.require(:trip).permit(:name).merge(:user_id => current_user.id)
   end
 end
