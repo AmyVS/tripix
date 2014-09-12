@@ -3,6 +3,7 @@ class Picture < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :trip
+  has_many :tags
 
   validates :photo, :attachment_presence => true
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
