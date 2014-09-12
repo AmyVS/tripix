@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: tripix_development
+
+test:
+  adapter: postgresql
+  database: tripix_test
+
