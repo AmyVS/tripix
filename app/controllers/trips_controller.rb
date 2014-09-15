@@ -39,6 +39,13 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    flash[:notice] = "Your trip has been removed."
+    redirect_to user_path
+  end
+
 private
   def trip_params
     params.require(:trip).permit(:name).merge(:user_id => current_user.id)

@@ -4,7 +4,10 @@
   <ul>
     <% @user.trips.each do |trip| %>
       <li><%= link_to "#{trip.name}", trip_path(trip) %> |
-          <%= link_to "edit", edit_trip_path(trip) %>
+          <%= link_to "edit", edit_trip_path(trip) %> |
+          <%= link_to "remove", trip_path(trip),
+                      :data => {:confirm => "Are you sure you'd like to remove this trip?",
+                                :method => "delete"} %>
       </li>
     <% end %>
   </ul>
