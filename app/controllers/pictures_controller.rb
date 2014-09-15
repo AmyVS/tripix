@@ -20,6 +20,23 @@ class PicturesController < ApplicationController
     end
   end
 
+  def edit
+    @trip = Trip.find(params[:trip_id])
+    @picture = Picture.find(params[:id])
+  end
+
+  def update
+    @trip = Trip.find(params[:trip_id])
+    @picture = Picture.find(params[:id])
+    if @picture.update(picture_params)
+      flash[:notice] = "Your picture has been replaced."
+      redirect_to trip_path(@trip)
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      render "edit"
+    end
+  end
+
 private
   def picture_params
     params.require(:picture).permit(:photo).merge(:user_id => current_user.id, :trip_id => @trip.id)

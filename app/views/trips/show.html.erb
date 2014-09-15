@@ -2,7 +2,9 @@
 
 <ul class="show_pix">
   <% @trip.pictures.each do |picture| %>
-    <li class="pic"><%= image_tag picture.photo.url(:medium) %><li>
+    <li class="pic"><%= image_tag picture.photo.url(:medium) %>
+                    <%= link_to "replace", edit_trip_picture_path(@trip, picture) %>
+    <li>
   <% end %>
 </ul>
 
