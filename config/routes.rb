@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :users
   resources :trips do
     resources :pictures
-    resources :tags
   end
 
 end

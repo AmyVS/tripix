@@ -8,7 +8,6 @@ describe "adding trips" do
     fill_in :password, :with => 'mypassword'
     click_button "Enter"
     visit '/trips/new'
-    save_and_open_page
     fill_in :trip_name, :with => 'my adventure'
     click_button "Create Trip"
     expect(page).to have_content "Your trip has been documented!"
@@ -23,5 +22,21 @@ describe "adding trips" do
     visit '/trips/new'
     click_button "Create Trip"
     expect(page).to have_content "Something went wrong. Please try again."
+  end
+
+  it "edits a trip on the user's account" do
+    visit '/sessions/new'
+    user = User.create(:username => 'myname', :email => 'myname@email.com', :password => 'mypassword')
+    fill_in :email, :with => 'myname@email.com'
+    fill_in :password, :with => 'mypassword'
+    click_button "Enter"
+    trip = Trip.create(:name => 'my adventure', :user_id => user.id)
+    visit '/users/"#{user.id}"'
+    save_and_open_page
+    click_link('edit')
+    visit '/trips/"#{trip.id}"/edit'
+    fill_in :trip_name, :with => 'my AWESOME adventure'
+    click_button "Update Trip"
+    expect(page).to have_content "Your trip has been edited."
   end
 end
