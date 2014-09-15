@@ -1,7 +1,7 @@
 <%= form_for @trip do |f| %>
 
   <%= render('layouts/errors', :object => @trip) %>
- <div class="form-group">
+  <div class="form-group">
     <%= f.label "Name:" %>
     <%= f.text_field :name %>
   </div>

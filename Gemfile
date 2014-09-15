@@ -20,7 +20,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'rspec'
-  gem 'warden', '~> 1.2.3'
+  gem 'launchy'
 end
 
 group :test do

@@ -7,7 +7,7 @@ describe "the signin process" do
     fill_in :email, :with => 'myname@email.com'
     fill_in :password, :with => 'mypassword'
     click_button "Enter"
-    page.should have_content "Logged in!"
+    expect(page).to have_content "Logged in!"
   end
 
   it "gives a user an error who enters a password that doesn't match their own" do
@@ -16,6 +16,6 @@ describe "the signin process" do
     fill_in :email, :with => 'myname@email.com'
     fill_in :password, :with => 'notmypassword'
     click_button "Enter"
-    page.should have_content "Email or password is invalid"
+    expect(page).to have_content "Email or password is invalid"
   end
 end

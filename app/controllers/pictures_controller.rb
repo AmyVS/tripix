@@ -37,6 +37,13 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    flash[:alert] = "Your picture has been removed."
+    redirect_to trip_path(@trip)
+  end
+
 private
   def picture_params
     params.require(:picture).permit(:photo).merge(:user_id => current_user.id, :trip_id => @trip.id)

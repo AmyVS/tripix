@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-include Warden::Test::Helpers
-
 describe "adding trips" do
   it "creates a new trip on the user's account" do
+    visit '/sessions/new'
     user = User.create(:username => 'myname', :email => 'myname@email.com', :password => 'mypassword')
-    login_as(user, :scope => :user)
+    fill_in :email, :with => 'myname@email.com'
+    fill_in :password, :with => 'mypassword'
+    click_button "Enter"
     visit '/trips/new'
     save_and_open_page
-    fill_in "name", :with => 'my adventure'
+    fill_in :trip_name, :with => 'my adventure'
     click_button "Create Trip"
-    page.should have_content "Your trip has been documented!"
+    expect(page).to have_content "Your trip has been documented!"
   end
 end

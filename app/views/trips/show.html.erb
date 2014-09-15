@@ -4,6 +4,9 @@
   <% @trip.pictures.each do |picture| %>
     <li class="pic"><%= image_tag picture.photo.url(:medium) %>
                     <%= link_to "replace", edit_trip_picture_path(@trip, picture) %>
+                    <%= link_to "remove", trip_picture_path(@trip, picture),
+                      :data => {:confirm => "Are you sure you'd like to remove this picture?",
+                                :method => "delete"} %>
     <li>
   <% end %>
 </ul>
