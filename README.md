@@ -1,6 +1,6 @@
 #Tripix
 
-This is a project using Ruby on Rails, HTML5, CSS3 and Capybara testing. It's a simple photo journal app where a user can log in, add new adventures, and upload pictures to their adventures.
+This is a project using Ruby on Rails, HTML5, CSS3 and Capybara testing. It's a simple photo journal app where a user can log in, add new adventures, and upload pictures.
 
 Check out Tripix on Heroku:
 http://tripix.herokuapp.com/
