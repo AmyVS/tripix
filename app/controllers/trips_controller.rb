@@ -1,6 +1,8 @@
 class TripsController < ApplicationController
+  before_filter :authorize
+
   def index
-    @trips = Trips.all
+    @trips = Trip.all
   end
 
   def new
@@ -20,6 +22,21 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+  end
+
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    if @trip.update(trip_params)
+      flash[:notice] = "Your trip has been edited."
+      redirect_to trip_path(@trip)
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      render "edit"
+    end
   end
 
 private

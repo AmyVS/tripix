@@ -3,7 +3,9 @@
 <h3>Your Trips:</h3>
   <ul>
     <% @user.trips.each do |trip| %>
-      <li><%= link_to "#{trip.name}", trip_path(trip) %></li>
+      <li><%= link_to "#{trip.name}", trip_path(trip) %> |
+          <%= link_to "edit", edit_trip_path(trip) %>
+      </li>
     <% end %>
   </ul>
 <%= link_to "Home", root_path, :class => "btn btn-default" %>

@@ -6,7 +6,7 @@ describe "adding trips" do
   it "creates a new trip on the user's account" do
     user = User.create(:username => 'myname', :email => 'myname@email.com', :password => 'mypassword')
     login_as(user, :scope => :user)
-    visit '/trips'
+    visit '/trips/new'
     fill_in :name, :with => 'my adventure'
     click_button "Create Trip"
     page.should have_content "Your trip has been documented!"
